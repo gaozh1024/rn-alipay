@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+
+def getExtOrProperty(name, fallbackValue) {
+  if (rootProject.ext.has(name)) {
+    return rootProject.ext.get(name)
+  }
+
+  def propertyName = "RnAlipay_${name}"
+  return project.properties.containsKey(propertyName)
+    ? project.properties[propertyName]
+    : fallbackValue
+}
+
+android {
+  namespace 'com.rnalipay'
+  compileSdkVersion getExtOrProperty('compileSdkVersion', 34).toInteger()
+
+  defaultConfig {
+    minSdkVersion getExtOrProperty('minSdkVersion', 21).toInteger()
+    targetSdkVersion getExtOrProperty('targetSdkVersion', 34).toInteger()
+    consumerProguardFiles 'consumer-rules.pro'
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = '11'
+  }
+
+  lint {
+    abortOnError false
+  }
+}
+
+repositories {
+  google()
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'com.facebook.react:react-android'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:${getExtOrProperty('kotlinVersion', '1.9.24')}"
+  implementation "com.alipay.sdk:alipaysdk-android:${getExtOrProperty('alipaySdkVersion', '15.8.40')}"
+}

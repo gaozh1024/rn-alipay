@@ -1,0 +1,26 @@
+{
+  "name": "rn-alipay",
+  "version": "0.1.0",
+  "description": "Android-only React Native bridge for Alipay App Pay",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "react-native": "index.js",
+  "files": [
+    "android",
+    "index.js",
+    "index.d.ts",
+    "react-native.config.js",
+    "README.md"
+  ],
+  "keywords": [
+    "react-native",
+    "alipay",
+    "android",
+    "payment"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.72"
+  },
+  "license": "MIT"
+}
