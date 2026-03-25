@@ -1,6 +1,6 @@
 {
-  "name": "rn-alipay",
-  "version": "0.1.0",
+  "name": "@gaozh1024/rn-alipay",
+  "version": "1.0.0",
   "description": "Android-only React Native bridge for Alipay App Pay",
   "main": "index.js",
   "types": "index.d.ts",
